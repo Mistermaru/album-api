@@ -12,5 +12,5 @@ RUN dotnet publish -c Release -o out
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:5.0
 WORKDIR /App
-COPY --from=build-env /app/out .
+COPY --from=build-env /App/out .
 ENTRYPOINT ["dotnet", "Album.Api.dll"]
