@@ -27,7 +27,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Build the Docker image
-      run: docker build --tag albumapi:${{github.run_number}} --file Dockerfile .
+      run: docker build --tag album:${{github.run_number}} --file Dockerfile .
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
       with:
@@ -39,8 +39,8 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
       id: login-ecr
     - name: Tag Docker image for ECR
-      run: docker image tag albumapi:${{github.run_number}} 406617925703.dkr.ecr.us-east-1.amazonaws.com/cnsd/albumapi:${{github.run_number}}
+      run: docker image tag album:${{github.run_number}} 406617925703.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:${{github.run_number}}
     - name: Push Docker image to ECR
-      run: docker push 406617925703.dkr.ecr.us-east-1.amazonaws.com/cnsd/albumapi:${{github.run_number}}
+      run: docker push 406617925703.dkr.ecr.us-east-1.amazonaws.com/cnsd/album:${{github.run_number}}
         
         
