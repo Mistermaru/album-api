@@ -19,8 +19,4 @@
     </PackageReference>
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Album.Api\Album.Api\Album.Api.csproj" />
-  </ItemGroup>
-
 </Project>
