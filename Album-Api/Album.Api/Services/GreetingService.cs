@@ -15,7 +15,7 @@ namespace Album.Api
             }
             else
             {
-                res.ResponseContent = $"Hello {name}";
+                res.ResponseContent = $"Hello {name} from {Dns.GetHostName()}";
             }
 
             return res;

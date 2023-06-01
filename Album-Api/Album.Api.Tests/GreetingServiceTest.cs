@@ -15,7 +15,7 @@ namespace Album.Api.Tests
             var name = "John Wick";
             GreetingService greetingService = new GreetingService();
             Response expectedRes = new Response();
-            expectedRes.ResponseContent = $"Hello {name}";
+            expectedRes.ResponseContent = $"Hello {name} from {Dns.GetHostName()}";
 
             //act
             Response actualRes = greetingService.Greet(name);
