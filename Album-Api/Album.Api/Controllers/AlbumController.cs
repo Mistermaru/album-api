@@ -30,7 +30,7 @@ namespace Album.Api.Controllers
         /// <summary>
         /// Get an album by ID.
         /// </summary>
-        /// <returns>An album by ID</returns>
+        /// <returns>OkResult with an album by ID</returns>
         [HttpGet("{id}")]
         public IActionResult GetAlbumById(int id)
         {
