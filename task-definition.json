@@ -25,7 +25,12 @@
         "command": [],
         "linuxParameters": null,
         "cpu": 0,
-        "environment": [],
+        "environment": [
+          {
+            "name": "CONNECTIONSTRINGS__DEFAULTCONNECTION",
+            "value": "Server=cnsd-db-406617925703.cfivsa2zqjlj.us-east-1.rds.amazonaws.com;Database=albumdatabase;Port=5432;User Id=postgres;Password=dev8root123;"
+          }
+        ],
         "resourceRequirements": null,
         "ulimits": null,
         "dnsServers": null,
@@ -59,62 +64,7 @@
     "placementConstraints": [],
     "memory": "512",
     "taskRoleArn": "arn:aws:iam::406617925703:role/LabRole",
-    "compatibilities": [
-      "EC2",
-      "FARGATE"
-    ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:406617925703:task-definition/AlbumTaskDefinition:1",
     "family": "AlbumTaskDefinition",
-    "requiresAttributes": [
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.execution-role-awslogs"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.ecr-auth"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.task-iam-role"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.execution-role-ecr-pull"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-      },
-      {
-        "targetId": null,
-        "targetType": null,
-        "value": null,
-        "name": "ecs.capability.task-eni"
-      }
-    ],
     "pidMode": null,
     "requiresCompatibilities": [
       "FARGATE"
@@ -122,8 +72,6 @@
     "networkMode": "awsvpc",
     "runtimePlatform": null,
     "cpu": "256",
-    "revision": 1,
-    "status": "ACTIVE",
     "inferenceAccelerators": null,
     "proxyConfiguration": null,
     "volumes": []
