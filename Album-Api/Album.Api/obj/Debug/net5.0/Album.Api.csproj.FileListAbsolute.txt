@@ -140,4 +140,3 @@ C:\Users\Maru\Documents\GitHub\School\album-api\Album-Api\Album.Api\obj\Debug\ne
 C:\Users\Maru\Documents\GitHub\School\album-api\Album-Api\Album.Api\obj\Debug\net5.0\Album.Api.genruntimeconfig.cache
 C:\Users\Maru\Documents\GitHub\School\album-api\Album-Api\Album.Api\obj\Debug\net5.0\ref\Album.Api.dll
 C:\Users\Maru\Documents\GitHub\School\album-api\Album-Api\Album.Api\bin\Debug\net5.0\Album.Api.xml
-C:\Users\Maru\Documents\GitHub\School\album-api\Album-Api\Album.Api\obj\Debug\net5.0\Album.Api.xml

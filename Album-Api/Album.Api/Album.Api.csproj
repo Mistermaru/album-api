@@ -5,7 +5,7 @@
     <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\Album.Api.XML</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
