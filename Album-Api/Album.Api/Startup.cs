@@ -13,6 +13,8 @@ using Album.Api.Data;
 using Microsoft.OpenApi.Models;
 using System.IO;
 using System.Reflection;
+using Album.Api.Models;
+using Album.Api.Services;
 
 namespace Album.Api
 {
@@ -44,6 +46,7 @@ namespace Album.Api
 
             ) ;
             services.AddHealthChecks();
+            services.AddScoped<IAlbumService<AlbumModel>, AlbumService>();
             services.AddControllers();
         }
 
@@ -80,6 +83,7 @@ namespace Album.Api
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health");
             });
         }
     }
