@@ -35,8 +35,9 @@ namespace Album.Api
             services.AddRazorPages();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Album API", Version = "v1" });
+                var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
                 var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.XML";
-                var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+                var xmlPath = Path.Combine(baseDirectory, xmlFile);
 
                 //... and tell Swagger to use those XML comments.
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
