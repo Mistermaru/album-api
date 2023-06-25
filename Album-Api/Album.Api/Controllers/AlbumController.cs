@@ -2,6 +2,7 @@
 using Album.Api.Services;
 using Album.Api.Data;
 using Album.Api.Models;
+using Swashbuckle;
 
 namespace Album.Api.Controllers
 {
@@ -19,7 +20,7 @@ namespace Album.Api.Controllers
         /// <summary>
         /// Get a list of albums.
         /// </summary>
-        /// <returns>A list of albums</returns>
+        /// <returns>OkResult with a list of albums</returns>
         [HttpGet]
         public IActionResult GetAlbums()
         {
@@ -31,6 +32,7 @@ namespace Album.Api.Controllers
         /// Get an album by ID.
         /// </summary>
         /// <returns>OkResult with an album by ID</returns>
+        /// <response code="404">Not Found</response>
         [HttpGet("{id}")]
         public IActionResult GetAlbumById(int id)
         {
@@ -45,10 +47,13 @@ namespace Album.Api.Controllers
         }
 
         /// <summary>
-        /// Creates a new album.
+        /// Create a new album.
         /// </summary>
         /// <returns>A newly created album</returns>
+        ///  <response code="400">Bad Request</response>
+        ///  <response code="201 ">Album Created</response>
         [HttpPost]
+        [ProducesResponseType(400)]
         public IActionResult CreateAlbum(AlbumModel albumModel)
         {
             if (albumModel.Name == null || albumModel.Artist == null || albumModel.ImageUrl == null)
@@ -63,9 +68,11 @@ namespace Album.Api.Controllers
         }
 
         /// <summary>
-        /// Updates an album.
+        /// Update an album.
         /// </summary>
         /// <returns>Ok Message</returns>
+        /// <response code="400">Bad Request</response>
+        /// <response code="200">Succes; Message: Album updated</response>
         [HttpPut("{id}")]
         public IActionResult UpdateAlbum(int id, AlbumModel albumModel)
         {
@@ -80,10 +87,13 @@ namespace Album.Api.Controllers
         }
 
         /// <summary>
-        /// Deletes an album.
+        /// Delete an album.
         /// </summary>
-        /// <returns>No content</returns>
+        /// <returns>No Content</returns>
+        /// <response code="204">No Content</response>
+        /// <response code="404">Not Found</response>
         [HttpDelete("{id}")]
+        [ProducesResponseType(204)]
         public IActionResult DeleteAlbum(int id)
         {
             var album = _albumService.GetById(id);

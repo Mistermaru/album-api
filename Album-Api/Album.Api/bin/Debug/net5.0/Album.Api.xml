@@ -8,31 +8,38 @@
             <summary>
             Get a list of albums.
             </summary>
-            <returns>A list of albums</returns>
+            <returns>OkResult with a list of albums</returns>
         </member>
         <member name="M:Album.Api.Controllers.AlbumController.GetAlbumById(System.Int32)">
             <summary>
             Get an album by ID.
             </summary>
             <returns>OkResult with an album by ID</returns>
+            <response code="404">Not Found</response>
         </member>
         <member name="M:Album.Api.Controllers.AlbumController.CreateAlbum(Album.Api.Models.AlbumModel)">
             <summary>
-            Creates a new album.
+            Create a new album.
             </summary>
             <returns>A newly created album</returns>
+             <response code="400">Bad Request</response>
+             <response code="201 ">Album Created</response>
         </member>
         <member name="M:Album.Api.Controllers.AlbumController.UpdateAlbum(System.Int32,Album.Api.Models.AlbumModel)">
             <summary>
-            Updates an album.
+            Update an album.
             </summary>
             <returns>Ok Message</returns>
+            <response code="400">Bad Request</response>
+            <response code="200">Succes; Message: Album updated</response>
         </member>
         <member name="M:Album.Api.Controllers.AlbumController.DeleteAlbum(System.Int32)">
             <summary>
-            Deletes an album.
+            Delete an album.
             </summary>
-            <returns>No content</returns>
+            <returns>No Content</returns>
+            <response code="204">No Content</response>
+            <response code="404">Not Found</response>
         </member>
     </members>
 </doc>
