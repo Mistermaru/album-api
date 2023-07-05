@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Album.Api.Services;
-using Album.Api.Data;
 using Album.Api.Models;
-using Swashbuckle;
 
 namespace Album.Api.Controllers
 {
