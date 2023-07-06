@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Album.Api.Services;
 using Album.Api.Models;
+using NpgsqlTypes;
 
 namespace Album.Api.Controllers
 {
@@ -31,7 +32,7 @@ namespace Album.Api.Controllers
         /// </summary>
         /// <returns>OkResult with an album by ID</returns>
         /// <response code="404">Not Found</response>
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetAlbumById")]
         public IActionResult GetAlbumById(int id)
         {
             var album = _albumService.GetById(id);
@@ -61,7 +62,7 @@ namespace Album.Api.Controllers
             
             _albumService.Create(albumModel);
 
-            return CreatedAtAction("GetAlbumModel", new { id = albumModel.Id }, albumModel);
+            return CreatedAtAction("GetAlbumById", new { id = albumModel.Id }, albumModel);
 
         }
 

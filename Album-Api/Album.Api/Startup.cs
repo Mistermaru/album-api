@@ -33,11 +33,6 @@ namespace Album.Api
                        .AllowAnyOrigin();
             }));
 
-            services.AddMvc(options =>
-            {
-                options.SuppressAsyncSuffixInActionNames = false;
-            });
-
             services.AddDbContext<AlbumDBContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));
