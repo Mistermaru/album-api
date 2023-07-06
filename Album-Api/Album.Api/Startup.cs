@@ -26,6 +26,12 @@ namespace Album.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("AlbumCorsPolicy", builder =>
+            {
+                builder.AllowAnyMethod()
+                       .AllowAnyHeader()
+                       .AllowAnyOrigin();
+            }));
 
             services.AddDbContext<AlbumDBContext>(options =>
                 options.UseNpgsql(
@@ -44,12 +50,13 @@ namespace Album.Api
             services.AddHealthChecks();
             services.AddScoped<IAlbumService<AlbumModel>, AlbumService>();
             services.AddControllers();
-            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors("AlbumCorsPolicy");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -75,6 +82,8 @@ namespace Album.Api
 
             app.UseRouting();
 
+            
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
@@ -83,10 +92,7 @@ namespace Album.Api
                 endpoints.MapHealthChecks("/health");
             });
 
-            app.UseCors(policy => policy
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowAnyOrigin());
+
         }
     }
 }
