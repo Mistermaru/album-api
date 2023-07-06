@@ -44,6 +44,7 @@ namespace Album.Api
             services.AddHealthChecks();
             services.AddScoped<IAlbumService<AlbumModel>, AlbumService>();
             services.AddControllers();
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -81,6 +82,11 @@ namespace Album.Api
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/health");
             });
+
+            app.UseCors(policy => policy
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowAnyOrigin());
         }
     }
 }
