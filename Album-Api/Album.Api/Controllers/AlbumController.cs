@@ -58,7 +58,7 @@ namespace Album.Api.Controllers
             {
                 return BadRequest();
             }
-
+            
             _albumService.Create(albumModel);
 
             return CreatedAtAction("GetAlbumModel", new { id = albumModel.Id }, albumModel);
